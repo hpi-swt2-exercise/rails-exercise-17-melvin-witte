@@ -21,4 +21,9 @@ describe "Author index page", type: :feature do
 		expect(page).to have_selector("td##{'name'}", text: author.name)
 		expect(page).to have_selector("td##{'homepage'}", text: author.homepage)
 	end
+
+	it "should have a link to the new author page" do
+		visit author_index_path
+		expect(page).to have_link("Create new author", href: new_author_path)
+	end
 end
