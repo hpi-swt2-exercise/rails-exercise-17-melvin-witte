@@ -1,4 +1,15 @@
 <h1>Author index</h1>
-<% @authors.each do |author| %>
-	<%= author.id %>: <%= author.name %>, Homepage <%= author.homepage %>
-<% end %>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Homepage</th>
+	</tr>
+	<% @authors.each do |author| %>
+		<tr>
+			<td id='id'><%= author.id %></td>
+			<td id='name'><%= author.name %></td>
+			<td id='homepage'><%= author.homepage %></td>
+		</tr>
+	<% end %>
+</table>
