@@ -17,4 +17,17 @@ describe "New author page", type: :feature do
 		visit new_author_path
 		expect(page).to have_css('input[type="submit"]')
 	end
+
+	it "should save a new author that is submitted" do
+		visit new_author_path
+		fill_in('First name', with: 'Alan')
+		fill_in('Last name', with: 'Turing')
+		fill_in('Homepage', with: 'http://wikipedia.org/Alan_Turing')
+		find('input[type="submit"]').click
+
+		author = Author.last
+		expect(author.first_name).to eq('Alan')
+		expect(author.last_name).to eq('Turing')
+		expect(author.homepage).to eq('http://wikipedia.org/Alan_Turing')
+	end	
 end
