@@ -52,10 +52,11 @@ describe "Edit paper page", type: :feature do
 
 	it "should have the current authors preselected" do
 		paper = create(:paper)
+		visit edit_paper_path(paper)
 		for i in 1..5 do
 			author = paper.authors[i - 1]
 			next if author.nil?
-			expect(page).to have_select('paper_author_id_' + i.to_s, selected: author.name)
+			expect(page).to have_content(author.name)
 		end
 	end
 end
