@@ -3,12 +3,12 @@ require 'rails_helper'
 describe "Edit paper page", type: :feature do
  
 	it "should render the edit paper page without error" do
-		paper = FactoryGirl.create(:paper)
+		paper = create(:paper)
 		visit edit_paper_path(paper)
 	end
 
 	it "should have a form to change paper's details" do
-		paper = FactoryGirl.create(:paper)
+		paper = create(:paper)
 		visit edit_paper_path(paper)
 		expect(page).to have_field('Title')
 		expect(page).to have_field('Venue')
@@ -16,7 +16,7 @@ describe "Edit paper page", type: :feature do
 	end
 
 	it "should save the changes to the paper" do
-		paper = FactoryGirl.create(:paper)
+		paper = create(:paper)
 		visit edit_paper_path(paper)
 		fill_in('Title', with: 'super')
 		fill_in('Venue', with: 'better')
@@ -27,5 +27,15 @@ describe "Edit paper page", type: :feature do
 		expect(paper.title).to eq('super')
 		expect(paper.venue).to eq('better')
 		expect(paper.year).to eq(1960)
+	end
+
+	it "should have a dropdown selection for five authors" do
+		paper = create(:paper)
+		visit edit_paper_path(paper)
+		expect(page).to have_selector('select', id: 'paper_author_1')
+		expect(page).to have_selector('select', id: 'paper_author_2')
+		expect(page).to have_selector('select', id: 'paper_author_3')
+		expect(page).to have_selector('select', id: 'paper_author_4')
+		expect(page).to have_selector('select', id: 'paper_author_5')
 	end
 end
