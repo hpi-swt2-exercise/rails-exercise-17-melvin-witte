@@ -17,4 +17,10 @@ describe "Show author page", type: :feature do
 		expect(page).to have_content("Last name: " + author.last_name)
 		expect(page).to have_content("Homepage: " + author.homepage)
 	end
+
+	it "should have a link to display an author's details" do
+		author = create(:author)
+		visit author_path(author)
+		expect(page).to have_link("Edit", href: edit_author_path(author))
+	end
 end
