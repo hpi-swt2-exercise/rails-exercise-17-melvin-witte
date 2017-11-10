@@ -4,7 +4,8 @@
 		<th>ID</th>
 		<th>Name</th>
 		<th>Homepage</th>
-		<th>AUthor's Details</th>
+		<th>Author's Details</th>
+		<th>Edit Author's Details</th>
 	</tr>
 	<% @authors.each do |author| %>
 		<tr>
@@ -12,6 +13,7 @@
 			<td id='name'><%= author.name %></td>
 			<td id='homepage'><%= author.homepage %></td>
 			<td id='author_details'><%= link_to("Show", author_path(author)) %>
+			<td id='edit_author_details'><%= link_to("Edit", edit_author_path(author)) %>
 		</tr>
 	<% end %>
 </table>
