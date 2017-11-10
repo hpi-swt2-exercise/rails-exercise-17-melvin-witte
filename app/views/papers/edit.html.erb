@@ -21,22 +21,27 @@
 	</p>
 	<p>
 		<%= f.label "Author 1", for: :paper_author_1 %>
+		<% selected = @paper.authors[0] ? @paper.authors[1] : nil %>
 		<%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[1], include_blank: 'none'}, {name: "paper[author_ids][]", id: "paper_author_1"} %>
 	</p>
 	<p>
 		<%= f.label "Author 2", for: :paper_author_2 %>
+		<% selected = @paper.authors[0] ? @paper.authors[2] : nil %>
 		<%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[2], include_blank: 'none'}, {name: "paper[author_ids][]", id: "paper_author_2"} %>
 	</p>
 	<p>
 		<%= f.label "Author 3", for: :paper_author_3 %>
+		<% selected = @paper.authors[0] ? @paper.authors[3] : nil %>
 		<%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[3], include_blank: 'none'}, {name: "paper[author_ids][]", id: "paper_author_3"} %>
 	</p>
 	<p>
 		<%= f.label "Author 4", for: :paper_author_4 %>
+		<% selected = @paper.authors[0] ? @paper.authors[4] : nil %>
 		<%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[4], include_blank: 'none'}, {name: "paper[author_ids][]", id: "paper_author_4"} %>
 	</p>
 	<p>
 		<%= f.label "Author 5", for: :paper_author_5 %>
+		<% selected = @paper.authors[0] ? @paper.authors[5] : nil %>
 		<%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[5], include_blank: 'none'}, {name: "paper[author_ids][]", id: "paper_author_5"} %>
 	</p>
 	<p>
