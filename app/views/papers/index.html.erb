@@ -16,10 +16,10 @@
 			<td id='venue'><%= paper.venue %></td>
 			<td id='year'><%= paper.year %></td>
 			<td id='paper_details'><%= link_to("Show", paper_path(paper)) %></td>
-			<!--<td id='edit_paper_details'><%= link_to("Edit", edit_paper_path(paper)) %></td>
-			<td id='delete_paper_details'><%= 	link_to("Destroy", paper_path(paper),
+			<td id='edit_paper_details'><%= link_to("Edit", edit_paper_path(paper)) %></td>
+			<!-- <td id='delete_paper_details'><%= 	link_to("Destroy", paper_path(paper),
 												method: :delete,
-												data: {confirm: 'Are you sure?' }) %></td>-->
+												data: {confirm: 'Are you sure?' }) %></td> -->
 		</tr>
 	<% end %>
 </table>
