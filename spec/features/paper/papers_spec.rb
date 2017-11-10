@@ -36,4 +36,10 @@ describe "Paper index page", type: :feature do
 		visit papers_path
 		expect(page).to have_link("Destroy")
 	end
+
+	it "sbould filter papers by year" do
+		paper = create(:paper)
+		expect(Paper.filter_year(2017)).to be_empty
+		expect(Paper.filter_year(1950)).not_to be_empty
+	end
 end
