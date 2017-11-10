@@ -52,8 +52,8 @@ describe "Edit paper page", type: :feature do
 
 	it "should have the current authors preselected" do
 		paper = create(:paper)
-		for i in [1..5]
-			author = paper.authors[1]
+		for i in 1..5 do
+			author = paper.authors[i - 1]
 			next if author.nil?
 			expect(page).to have_select('paper_author_1', selected: author.name)
 		end
