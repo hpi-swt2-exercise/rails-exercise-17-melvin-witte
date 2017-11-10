@@ -38,4 +38,15 @@ describe "Edit paper page", type: :feature do
 		expect(page).to have_selector('select', id: 'paper_author_4')
 		expect(page).to have_selector('select', id: 'paper_author_5')
 	end
+
+	it "should save the author selection" do
+		paper = create(:paper)
+		another_author = Author.new(first_name: "Max", last_name: "Mustermann")
+		another_author.save
+		visit edit_paper_path(paper)
+		select(another_author.name, from: 'paper_author_1')
+		find('input[type="submit"]').click
+		paper.reload
+		expect(paper.authors).to include(another_author)
+	end
 end
