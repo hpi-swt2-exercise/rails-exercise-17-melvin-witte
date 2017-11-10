@@ -25,11 +25,11 @@ describe "Paper index page", type: :feature do
 		expect(page).to have_link("Show", paper_path(paper))
 	end
 
-	# it "should have a link to edit a paper's details" do
-		# paper = FactoryGirl.create(:paper)
-		# visit papers_path
-		# expect(page).to have_link("Edit", edit_paper_path(paper))
-	# end
+	it "should have a link to edit a paper's details" do
+		paper = FactoryGirl.create(:paper)
+		visit papers_path
+		expect(page).to have_link("Edit", edit_paper_path(paper))
+	end
 # 
 	# it "should have a link to delete a paper" do
 		# paper = FactoryGirl.create(:paper)
