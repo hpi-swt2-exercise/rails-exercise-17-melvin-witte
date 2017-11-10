@@ -30,4 +30,21 @@ describe "New author page", type: :feature do
 		expect(author.last_name).to eq('Turing')
 		expect(author.homepage).to eq('http://wikipedia.org/Alan_Turing')
 	end	
+
+	it "should show an error message when creating an author without last name" do
+		visit new_author_path
+		fill_in('First name', with: 'Alan')
+		fill_in('Last name', with: '')
+		fill_in('Homepage', with: 'https://wikipedia.org/Alan_Turing')
+		find('input[type="submit"]').click
+		
+		expect(page).to have_content("Last name can't be blank")
+
+		fill_in('First name', with: 'Alan')
+		fill_in('Last name', with: 'Turing')
+		fill_in('Homepage', with: 'https://wikipedia.org/Alan_Turing')
+		find('input[type="submit"]').click
+
+		expect(page).to_not have_content("Last name can't be blank")
+	end
 end
