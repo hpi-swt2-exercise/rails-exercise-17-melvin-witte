@@ -1,0 +1,27 @@
+<h1>New Author</h1>
+		 
+<%= form_for :paper, url: papers_path do |f| %>
+	<p>
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :venue %><br>
+		<%= f.text_field :venue %>
+	</p>
+	<p>
+		<%= f.label :year %><br>
+		<%= f.number_field :year %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<% unless @paper.nil? %>
+	<% if @paper.errors.any? %>
+		<% @paper.errors.full_messages.each do |message| %>
+			<%= message %>
+		<% end %>
+	<% end %>
+<% end %>
