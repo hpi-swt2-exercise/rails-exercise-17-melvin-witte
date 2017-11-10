@@ -32,11 +32,11 @@ describe "Edit paper page", type: :feature do
 	it "should have a dropdown selection for five authors" do
 		paper = create(:paper)
 		visit edit_paper_path(paper)
-		expect(page).to have_selector('select', id: 'paper_author_1')
-		expect(page).to have_selector('select', id: 'paper_author_2')
-		expect(page).to have_selector('select', id: 'paper_author_3')
-		expect(page).to have_selector('select', id: 'paper_author_4')
-		expect(page).to have_selector('select', id: 'paper_author_5')
+		expect(page).to have_selector('select', id: 'paper_author_id_1')
+		expect(page).to have_selector('select', id: 'paper_author_id_2')
+		expect(page).to have_selector('select', id: 'paper_author_id_3')
+		expect(page).to have_selector('select', id: 'paper_author_id_4')
+		expect(page).to have_selector('select', id: 'paper_author_id_5')
 	end
 
 	it "should save the author selection" do
@@ -44,7 +44,7 @@ describe "Edit paper page", type: :feature do
 		another_author = Author.new(first_name: "Max", last_name: "Mustermann")
 		another_author.save
 		visit edit_paper_path(paper)
-		select(another_author.name, from: 'paper_author_1')
+		select(another_author.name, from: 'paper_author_id_1')
 		find('input[type="submit"]').click
 		paper.reload
 		expect(paper.authors).to include(another_author)
@@ -55,7 +55,7 @@ describe "Edit paper page", type: :feature do
 		for i in 1..5 do
 			author = paper.authors[i - 1]
 			next if author.nil?
-			expect(page).to have_select('paper_author_1', selected: author.name)
+			expect(page).to have_select('paper_author_id_1', selected: author.name)
 		end
 	end
 end
