@@ -15,7 +15,8 @@
 			<td id='homepage'><%= author.homepage %></td>
 			<td id='author_details'><%= link_to("Show", author_path(author)) %></td>
 			<td id='edit_author_details'><%= link_to("Edit", edit_author_path(author)) %></td>
-			<td id='delete_author_details'><%= 	link_to("Destroy", destroy_author_path(author),
+			<td id='delete_author_details'><%= 	link_to("Destroy", author_path(author),
+												method: :delete,
 												data: {confirm: 'Are you sure?' }) %></td>
 		</tr>
 	<% end %>
