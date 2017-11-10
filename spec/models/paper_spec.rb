@@ -13,4 +13,10 @@ describe "Papermodel", type: :model do
 		paper.year = 1950
 		expect(paper.valid?).to eq(true)
 	end
+
+	it "should not validate without an integer as a year" do
+		paper = FactoryGirl.create(:paper)
+		paper.year = "Schinken"
+		expect(paper.valid?).to eq(false)
+	end
 end
