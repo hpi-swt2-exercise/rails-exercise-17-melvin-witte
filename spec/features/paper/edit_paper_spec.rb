@@ -49,4 +49,13 @@ describe "Edit paper page", type: :feature do
 		paper.reload
 		expect(paper.authors).to include(another_author)
 	end
+
+	it "should have the current authors preselected" do
+		paper = create(:paper)
+		for i in [1..5]
+			author = paper.authors[1]
+			next if author.nil?
+			expect(page).to have_select('paper_author_1', selected: author.name)
+		end
+	end
 end
