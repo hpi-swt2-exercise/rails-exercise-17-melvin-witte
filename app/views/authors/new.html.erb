@@ -1,5 +1,5 @@
 <h1>New Author</h1>
-
+		 
 <%= form_for :author, url: authors_path do |f| %>
 	<p>
 		<%= f.label :first_name %><br>
@@ -16,4 +16,12 @@
 	<p>
 		<%= f.submit %>
 	</p>
+<% end %>
+
+<% unless @author.nil? %>
+	<% if @author.errors.any? %>
+		<% @author.errors.full_messages.each do |message| %>
+			<%= message %>
+		<% end %>
+	<% end %>
 <% end %>
