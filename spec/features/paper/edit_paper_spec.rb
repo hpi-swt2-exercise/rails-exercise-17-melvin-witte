@@ -55,7 +55,7 @@ describe "Edit paper page", type: :feature do
 		for i in 1..5 do
 			author = paper.authors[i - 1]
 			next if author.nil?
-			expect(page).to have_select('paper_author_id_1', selected: author.name)
+			expect(page).to have_select('paper_author_id_' + i.to_s, selected: author.name)
 		end
 	end
 end
