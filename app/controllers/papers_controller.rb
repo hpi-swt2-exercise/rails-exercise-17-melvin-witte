@@ -16,6 +16,10 @@ class PapersController < ApplicationController
 		@paper = Paper.find(params[:id])
 	end
 
+	def index
+		@papers = Paper.all
+	end
+
 	private
 
 	def paper_params
