@@ -42,6 +42,6 @@ describe "Author index page", type: :feature do
 	it "should have a link to delete an author" do
 		author = FactoryGirl.create(:author)
 		visit author_index_path
-		expect(page).to have_link("Destroy", destroy_author_path(author))
+		expect(page).to have_link("Destroy")
 	end
 end
