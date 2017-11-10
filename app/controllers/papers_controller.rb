@@ -36,7 +36,11 @@ class PapersController < ApplicationController
 	end
 
 	def index
-		@papers = Paper.all
+		if params[:year].nil?
+			@papers = Paper.all
+		else
+			@papers = Paper.filter_year(params[:year])
+		end
 	end
 
 	private
