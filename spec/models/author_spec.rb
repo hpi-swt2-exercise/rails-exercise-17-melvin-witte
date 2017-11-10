@@ -24,4 +24,9 @@ describe "Author model", type: :model do
 		author.valid?
 		expect(author.errors[:last_name]).to_not include("can't be blank")
 	end
+
+	it "should have no or manny papers associated with him" do
+		author = FactoryGirl.create(:author)
+		papers = author.papers
+	end
 end

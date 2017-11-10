@@ -19,4 +19,9 @@ describe "Papermodel", type: :model do
 		paper.year = "Schinken"
 		expect(paper.valid?).to eq(false)
 	end
+
+	it "should have no or many authors associated with it" do
+		paper = FactoryGirl.create(:paper)
+		authors = paper.authors
+	end
 end
